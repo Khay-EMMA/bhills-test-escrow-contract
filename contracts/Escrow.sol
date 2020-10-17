@@ -11,6 +11,25 @@ contract EscrowService {
     enum State { Created, Locked, Release, Inactive }
 
     //state variable whivh has a default value of the first member
-
     State public state;
+
+    //modifier to check the current state
+    modifier inState(State _state) {
+        require(state == _state);
+        _;
+    }
+
+    //modifier to check that the function caller is the buyer
+    modifier onlyBuyer() {
+        require(msg.sender == buyer);
+        _;
+    }
+
+    //modifier to check that the function caller is the seller
+    modifier onlySeller() {
+        require(msg.sender == seller);
+        _;
+    }
+    
+
 }
