@@ -39,7 +39,7 @@ contract EscrowService {
 
 
     //ensure that msg.value is an even number
-     constructor() payable {
+     constructor() public payable {
         seller = msg.sender;
         value = msg.value / 2;
         require((2 * value) == msg.value, "Value has to be even.");
