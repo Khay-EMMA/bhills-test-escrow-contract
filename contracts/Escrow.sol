@@ -53,7 +53,7 @@ contract EscrowService {
 
         state = State.Inactive;
 
-        //transfer funds back to buyer
+        //transfer funds
         seller.transfer(address(this).balance);
     }
 
